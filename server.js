@@ -22,17 +22,22 @@ app.post('/', validateUrl,(req,res,next)=>{
     const converter = csvToJson()
     .fromFile(`${uri}`)
     .then((json)=>{
-        json.forEach((row)=>{
-        var keys = Object.keys(row)
-            for(let i =0; i<keys.length; i++){
-            key = keys[i];
-            ar = arr1[i];
-            if(key == ar){
-                data.push(`${key}: ${row[key]}`);
-            }
+        if (arr.length >=0){
+            json.forEach((row)=>{
+                var keys = Object.keys(row)
+                    for(let i =0; i<keys.length; i++){
+                    key = keys[i];
+                    ar = arr1[i];
+                    if(key == ar){
+                        data.push(`${key}: ${row[key]}`);
+                    }
+                }
+                
+                })
         }
+            data.push(json)
         
-        })
+    
         id = uuidv4();
         output = {
             conversion_key: id,
