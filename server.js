@@ -8,7 +8,7 @@ const { v4: uuidv4 }= require('uuid');
 
 app.use(express.json());
 
-app.post('/', validateUrl, (req,res,next)=>{
+app.post('/', validateUrl,(req,res,next)=>{
     const input ={
         csv:{
             urls: req.body.urls,
@@ -31,6 +31,7 @@ app.post('/', validateUrl, (req,res,next)=>{
                 data.push(`${key}: ${row[key]}`);
             }
         }
+        
         })
         id = uuidv4();
         output = {
@@ -53,6 +54,7 @@ function validateUrl(req,res,next){
     } else { 
                 ret = "Invalid URL"; 
             } 
+           next()
 }
 
 PORT = process.env.PORT || 3000
