@@ -1,0 +1,16 @@
+{
+  "name": "nodejs_backend_intern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
+  }
+}
